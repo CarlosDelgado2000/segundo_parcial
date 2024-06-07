@@ -1,5 +1,5 @@
 {
-  "name": "practica3",
+  "name": "practica_4",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^5.14.0",
+    "axios": "^1.7.2",
     "express": "^4.19.2"
   }
 }
