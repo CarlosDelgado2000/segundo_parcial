@@ -12,21 +12,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllTablas = void 0;
-const HttpClient_1 = __importDefault(require("../services/HttpClient"));
-// URL del servicio REST de tu compañero
-const externalServiceURL = 'http://10.42.4.47:3000/api/encuestas';
-// Controlador para obtener los datos desde el servicio REST de tu compañero
-const getAllTablas = (resq, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('Recibida solicitud para obtener todas las tablas');
-    try {
-        const data = yield HttpClient_1.default.get(externalServiceURL);
-        console.log('Datos recibidos del servicio externo:', data);
-        res.status(200).json(data);
-    }
-    catch (error) {
-        console.error('Error al obtener datos del servicio externo:', error);
-        res.status(500).json({ message: 'Error al obtener datos del servicio externo' });
-    }
-});
-exports.getAllTablas = getAllTablas;
+const axios_1 = __importDefault(require("axios"));
+const httpClient = {
+    get: (url) => __awaiter(void 0, void 0, void 0, function* () {
+        console.log(`Making request to ${url} with axios`);
+        try {
+            const response = yield axios_1.default.get(url);
+            console.log('Response received:', response.data);
+            return response.data;
+        }
+        catch (error) {
+            console.error('Error al obtener datos del servicio externo con axios:', error);
+            throw new Error('Error al obtener datos del servicio externo con axios');
+        }
+    })
+};
+exports.default = httpClient;

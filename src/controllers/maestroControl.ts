@@ -1,17 +1,18 @@
 import { Request, Response } from "express";
-import axios, {isCancel, AxiosError} from 'axios';
+import  httpClient from "../services/HttpClient";
 
 // URL del servicio REST de tu compañero
-const externalServiceURL = 'http://10.42.1.191:3000/api/personas';  // Cambia esta URL según sea necesario
+const externalServiceURL = 'http://10.42.4.47:3000/api/encuestas';
 
 // Controlador para obtener los datos desde el servicio REST de tu compañero
-export const getALLTABLAS = async (req: Request, res: Response) => {
+export const getAllTablas = async (resq: Request, res: Response) => {
+  console.log('Recibida solicitud para obtener todas las tablas');
   try {
-    const response = await axios.get(externalServiceURL);
-    res.json(response.data);
+    const data = await httpClient.get(externalServiceURL);
+    console.log('Datos recibidos del servicio externo:', data);
+    res.status(200).json(data);
   } catch (error) {
     console.error('Error al obtener datos del servicio externo:', error);
     res.status(500).json({ message: 'Error al obtener datos del servicio externo' });
   }
 };
-

@@ -1,9 +1,9 @@
 import { Router} from 'express';
-import {getALLTABLAS} from '../controllers/maestroControl'
+import {getAllTablas} from '../controllers/maestroControl'
 
 const router = Router();
 
-router.get('/', getALLTABLAS);
+router.get('/', getAllTablas);
 
 
 export default router;
