@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAllTablas = void 0;
 const HttpClient_1 = __importDefault(require("../services/HttpClient"));
 // URL del servicio REST de tu compañero
-const externalServiceURL = 'http://10.42.4.47:3000/api/encuestas';
+const externalServiceURL = 'https://ced1-177-234-224-10.ngrok-free.app/api/personas';
 // Controlador para obtener los datos desde el servicio REST de tu compañero
 const getAllTablas = (resq, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log('Recibida solicitud para obtener todas las tablas');

@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import  httpClient from "../services/HttpClient";
 
 // URL del servicio REST de tu compañero
-const externalServiceURL = 'http://10.42.4.47:3000/api/encuestas';
+const externalServiceURL = 'https://ced1-177-234-224-10.ngrok-free.app/api/personas';
 
 // Controlador para obtener los datos desde el servicio REST de tu compañero
 export const getAllTablas = async (resq: Request, res: Response) => {
